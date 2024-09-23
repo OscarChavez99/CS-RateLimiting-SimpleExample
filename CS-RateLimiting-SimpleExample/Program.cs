@@ -16,8 +16,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 // Use rate limiting middleware 
@@ -25,12 +25,12 @@ app.UseRateLimiter();
 
 // Endpoints:
 app.MapGet("/TwoTimesPerIp", (
-    [FromServices] ApiTestHandler handler) => handler.TwoTimesPerIp())
-    .RequireRateLimiting("twoTimesPerIp"); // Apply custom rate limiter
+	[FromServices] ApiTestHandler handler) => handler.TwoTimesPerIp())
+	.RequireRateLimiting("twoTimesPerIp"); // Apply custom rate limiter
 
 app.MapGet("/ThreeTimesPerMinute", (
-    [FromServices] ApiTestHandler handler) => handler.ThreeTimesPerMinute())
-    .RequireRateLimiting("threeTimesPerMinute"); // Apply custom rate limiter
+	[FromServices] ApiTestHandler handler) => handler.ThreeTimesPerMinute())
+	.RequireRateLimiting("threeTimesPerMinute"); // Apply custom rate limiter
 
 app.UseHttpsRedirection();
 app.Run();
