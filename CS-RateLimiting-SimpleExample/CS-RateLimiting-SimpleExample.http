@@ -1,0 +1,6 @@
+@CS_RateLimiting_SimpleExample_HostAddress = http://localhost:5190
+
+GET {{CS_RateLimiting_SimpleExample_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
